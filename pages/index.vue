@@ -25,7 +25,7 @@ onMounted(() => {
 })
 
 useHead({
-  title: "Home - Brave Sisters",
+  title: "Home - Coro Trezzano",
   meta:[
     {
       name:"description",

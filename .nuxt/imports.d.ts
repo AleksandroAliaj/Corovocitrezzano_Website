@@ -32,4 +32,5 @@ export { useProjectStore } from '../stores/projects';
 export { useReviewStore } from '../stores/reviews';
 export { useServiceStore } from '../stores/services';
 export { defineStore, acceptHMRUpdate, usePinia, storeToRefs } from '../node_modules/@pinia/nuxt/dist/runtime/composables';
+export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';

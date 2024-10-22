@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     devtools: {enabled: true},
     app: {
         head: {
-            title: 'Brave Sisters',
+            title: 'Coro Trezzano S/N',
             script: [
                 {}
             ],
