@@ -6,13 +6,12 @@ const router = useRouter();
 const imgBasePath = "/img/homepage/home_";
 const numberOfImages = 6;
 
-const paragraphs = ['REACT NOW,', 'DON\'T WAIT', 'ANY LONGER']
+const paragraphs = ['CANTA CON NOI,', 'UNISCI LA TUA VOCE', 'PER UNA COMUNITÀ PIÙ FORTE']
 const mainImagePath = "/img/homepage/MAIN.webp"
 
 const textVisibility = ref([false, false, false]);
 
 onMounted(() => {
-    // Animate text appearance
     setTimeout(() => {
         textVisibility.value[0] = true;
     }, 500);
@@ -25,18 +24,15 @@ onMounted(() => {
 })
 
 useHead({
-  title: "Home - Coro Trezzano",
+  title: "Home - Coro delle Chiese di Trezzano",
   meta:[
     {
       name:"description",
-      content:"This is the home page of the site. In this page , after an image and a short slogan,we can find " +
-          " a short text that encourages, in case of violence, seeking help and emphasizes that support is available, urging those in immediate danger to call emergency service." +
-          " After that we can find a page with the hyperlink to the most important page of the site: people, project and services. " +
-          " In the end there's a short gallery with some images."
+      content:"Questa è la home page del sito del Coro delle Chiese di Santa Gianna e Sant'Ambrogio di Trezzano sul Naviglio. Qui troverai informazioni sul nostro coro, le attività e gli eventi futuri, oltre a come unirti a noi e partecipare alla vita comunitaria attraverso il canto."
     },
     {
       name:"keywords",
-      content:"domestic violence, women safety, violence against women, help for women, stalking, sexual abuse, help, support for women"
+      content:"coro, chiesa, Santa Gianna, Sant'Ambrogio, canto corale, Trezzano sul Naviglio, parrocchia, attività comunitarie"
     }
   ]
 })
@@ -60,72 +56,64 @@ function goToServices() {
                 :paragraphs="paragraphs"
                 :photo-src="mainImagePath"
                 :left="true"/>
-        <div class="title-with-lines" id="main-title"><h1>Welcome, brave sister!</h1></div>
+        <div class="title-with-lines" id="main-title"><h1>Benvenuto nel nostro coro!</h1></div>
         <section>
             <section>
                 <div class="two-columns">
                     <div>
-                        <p>Welcome to our website! <br>
-                        Brave Sisters is an helpful center for women in difficulties due to domestic violence.
-                        If you're looking for help either for you or for a loved one, you are in the right place! <br>
-                        In this website you'll find all the information about our job and our experience. <br>
-                            Enjoy us!
+                        <p>Benvenuto nel sito del Coro delle Chiese di Santa Gianna e Sant'Ambrogio di Trezzano sul Naviglio. <br>
+                        Il nostro coro è una comunità aperta a tutti coloro che desiderano esprimere la propria fede attraverso il canto. <br>
+                        Partecipare al coro è un'opportunità per crescere spiritualmente, vivere momenti di condivisione e contribuire alle celebrazioni liturgiche con la musica. <br>
+                        Siamo sempre alla ricerca di nuove voci! Se vuoi unirti a noi, troverai tutte le informazioni necessarie nel sito.
                         <br>
-                        If you're in trouble for some reasons, you can use, by clicking on the icon in the right bottom corner of the page, our bot: it will help you about the current legislation in Italy against domestic violence and also to navigate through the different sections of this website.
-                        <br>
-                        We're here for you and for your safety! You're not alone.</p>
+                        Goditi la visita e speriamo di vederti presto tra noi!
+                        </p>
                     </div>
                     <div>
-                        <div class="title-with-lines"><h2>People</h2></div>
+                        <div class="title-with-lines"><h2>Chi siamo</h2></div>
                         <div class="image-container" @click="goToPeople">
-                            <img src="/img/homepage/collaboration_1.webp" alt="Go to people"/>
-                            <div class="hover-text">Meet the team</div>
+                            <img src="/img/homepage/collaboration_1.webp" alt="Vai alla sezione Chi Siamo"/>
+                            <div class="hover-text">Scopri il nostro coro</div>
                             <div class="hover-overlay"></div>
                         </div>
                     </div>
                 </div>
-
             </section>
-            <section id="warning-signs">
-                <div class="title-with-lines"><h2>Signs of violence</h2></div>
+            <section id="choir-events">
+                <div class="title-with-lines"><h2>Prossimi eventi</h2></div>
                 <div>
                     <div>
-                        <p>Violence can take many forms. If you experience any of these, you may be in an abusive
-                            situation:</p>
+                        <p>Il coro partecipa regolarmente a diverse celebrazioni ed eventi speciali. Ecco alcuni dei prossimi appuntamenti dove puoi ascoltarci:</p>
                         <ul>
-                            <li>Your partner constantly criticizes or humiliates you</li>
-                            <li>You feel afraid of your partner or anxious to please them</li>
-                            <li>Your partner controls your finances or who you see</li>
-                            <li>Your partner threatens you or your loved ones</li>
-                            <li>You feel pressured or forced into intimate situations</li>
+                            <li>Messa Solenne a Santa Gianna, domenica alle 10:30</li>
+                            <li>Concerto di Natale a Sant'Ambrogio, il 24 dicembre</li>
+                            <li>Prove aperte al pubblico ogni venerdì sera</li>
                         </ul>
-                        <p>Remember, you're not alone. Help is available. If you're in immediate danger, call emergency
-                            services, or contact us using our phone number: +39 0574 53695.</p>
+                        <p>Ti invitiamo a unirti a noi o a venire a sentirci in questi eventi. La musica è una parte fondamentale della nostra vita comunitaria!</p>
                     </div>
                 </div>
             </section>
-
             <section id="activities">
-                <div class="title-with-lines"><h2>Activities</h2></div>
+                <div class="title-with-lines"><h2>Attività</h2></div>
                     <div>
-                        <p>There are many different activities we put in place to assist women victims of violence throughout the entire journey they face to overcome it. <br>
-                        You can discover them by visiting the pages related to our projects and our services: <br>
+                        <p>Il nostro coro svolge numerose attività, oltre a partecipare alle celebrazioni religiose. <br>
+                        Organizziamo concerti, prove settimanali e partecipiamo ad eventi della comunità parrocchiale. Vieni a conoscerci meglio nelle sezioni dedicate ai nostri progetti e servizi.
                         </p>
                     </div>
                 <div class="two-columns">
                         <div>
-                            <div class="title-with-lines"><h2>Projects</h2></div>
+                            <div class="title-with-lines"><h2>Progetti</h2></div>
                             <div class="image-container" @click="goToProjects">
-                                <img src="/img/homepage/1.webp" alt="Go to projects"/>
-                                <div class="hover-text">Discover our projects</div>
+                                <img src="/img/homepage/1.webp" alt="Vai ai progetti"/>
+                                <div class="hover-text">Scopri i nostri progetti</div>
                                 <div class="hover-overlay"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="title-with-lines"><h2>Services</h2></div>
+                            <div class="title-with-lines"><h2>Servizi</h2></div>
                             <div class="image-container" @click="goToServices">
-                                <img src="/img/homepage/2.webp" alt="Go to services"/>
-                                <div class="hover-text">Discover our services</div>
+                                <img src="/img/homepage/2.webp" alt="Vai ai servizi"/>
+                                <div class="hover-text">Scopri i nostri servizi</div>
                                 <div class="hover-overlay"></div>
                             </div>
                         </div>
@@ -145,7 +133,7 @@ function goToServices() {
     box-sizing: border-box;
 }
 
-#warning-signs {
+#choir-events {
     background-color: #ffffff;
     border-radius: 8px;
     text-align: center;
