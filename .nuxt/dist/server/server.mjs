@@ -1,1 +1,0 @@
-export { default } from "file:///Users/aleksandroaliaj/Documents/coro_oratorio/node_modules/@nuxt/vite-builder/dist/runtime/vite-node.mjs"
