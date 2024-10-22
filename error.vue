@@ -12,7 +12,7 @@ const handleError = () => clearError({ redirect: '/' })
     <NuxtLayout>
         <div>
             <br>
-            <h2>Ops! Error {{ error.statusCode }}: the content you're looking for is not present.</h2>
+            <h2>Ops! Error the content you're looking for is not present.</h2>
             <br>
             <button @click="handleError">Back to home</button>
         </div>
