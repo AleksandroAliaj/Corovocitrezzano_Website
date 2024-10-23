@@ -117,22 +117,22 @@ function convert(message) {
                 <div style="text-align: right;">
                     <NuxtLink to="/contact-us">
                         <button>
-                            Contact us
+                            Unisciti!
                         </button>
                     </NuxtLink>
                 </div>
                 <nav>
-                    <NuxtLink to="/about-us">About us</NuxtLink>
-                    <NuxtLink to="/people">People</NuxtLink>
+                    <NuxtLink to="/about-us">Chi Siamo</NuxtLink>
+                    <NuxtLink to="/people">Le Voci</NuxtLink>
                     <div tabindex="0" id="activities"
                          v-on:keyup.enter="changeDisplay($event, $event.target.children[0]);"
                          @mouseenter="changeDisplay($event, $event.target.children[0], 'flex')"
                          @mouseleave="changeDisplay($event, $event.target.children[0], 'none')"
                          @click="changeDisplay($event, $event.target.children[0]);">
-                        Activities
+                        Altro
                         <div class="submenu">
-                            <NuxtLink to="/projects">Projects</NuxtLink>
-                            <NuxtLink to="/services">Services</NuxtLink>
+                            <NuxtLink to="/projects">Documenti</NuxtLink>
+                            <NuxtLink to="/services">Video</NuxtLink>
                         </div>
                         <img alt="Open submenu" class="ourIcon" src="@/assets/icons/arrow down.png"
                              @click="changeDisplay($event, $event.target.previousElementSibling)">

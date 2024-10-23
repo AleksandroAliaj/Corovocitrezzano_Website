@@ -4,7 +4,7 @@ import ListComponent from "~/components/ListComponent.vue";
 
 const people = ref(usePeopleStore().people), shown = ref(9), numberOfPeople = computed(() => people.value.length);
 const paragraphs = ['BY YOUR SIDE,', 'FOR YOU!']
-const mainImagePath = "/img/people/MAIN.webp"
+const mainImagePath = "/img/people/MAIN.png"
 
 
 function showMore() {

@@ -16,7 +16,7 @@ useHead({
 })
 
 const paragraphs = ['YOUR ALLY,', 'FOR YOUR FREEDOM']
-const mainImagePath = "/img/about-us-MAIN.webp"
+const mainImagePath = "/img/about-us-MAIN.png"
 </script>
 
 <template>
@@ -70,7 +70,7 @@ const mainImagePath = "/img/about-us-MAIN.webp"
                 <section class="two-columns">
                     <div class="map">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2876.4934116439467!2d11.085237475822755!3d43.866327638620774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132af61bd731b397%3A0x10e39e397c812421!2sVia%20di%20Grignano%2C%20102%2C%2059100%20Prato%20PO!5e0!3m2!1sit!2sit!4v1716039615957!5m2!1sit!2sit"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22403.11664071025!2d9.04178237618183!3d45.421647548657326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786e83042f6419b%3A0xd000abf5d225ce44!2s20090%20Trezzano%20sul%20Naviglio%20MI!5e0!3m2!1sit!2sit!4v1729694612665!5m2!1sit!2sit"
                             width="100%"
                             height="450"
                             style="border:0;"

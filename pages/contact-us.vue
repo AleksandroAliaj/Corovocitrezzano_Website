@@ -2,7 +2,7 @@
 import {ref, onMounted} from 'vue';
 
 const paragraphs = ['REACH US,', 'ENJOY US']
-const mainImagePath = "/img/contact-us-MAIN.webp"
+const mainImagePath = "/img/contact-us-MAIN.png"
 
 const faq = [
     {
