@@ -3,9 +3,8 @@
 import ListComponent from "~/components/ListComponent.vue";
 
 const people = ref(usePeopleStore().people), shown = ref(9), numberOfPeople = computed(() => people.value.length);
-const paragraphs = ['BY YOUR SIDE,', 'FOR YOU!']
+const paragraphs = ['LE NOSTRE VOCI,', 'UNITE PER TE!']
 const mainImagePath = "/img/people/MAIN.png"
-
 
 function showMore() {
     if (shown.value + 6 > numberOfPeople.value)
@@ -15,16 +14,16 @@ function showMore() {
 }
 
 useHead({
-  title: "People - Brave Sisters",
+  title: "Le Voci - Coro di Trezzano",
   meta:[
     {
       name:"description",
-      content:"This page contains a short description of the team of employees that works in Brave Sisters. " +
-          "After that it shows all the members of the team with the link to the corresponding personal pages."
+      content:"Questa pagina contiene una breve descrizione del nostro coro e dei membri che lo compongono. " +
+          "Dopo, puoi trovare informazioni sui membri del coro con i link alle rispettive pagine personali."
     },
     {
       name:"keywords",
-      content:"people, workers, employees, person, member"
+      content:"coro, voci, trezzano, chiesa, canto"
     }
   ]
 })
@@ -36,20 +35,16 @@ useHead({
             :paragraphs="paragraphs"
             :photo-src="mainImagePath"
             :left="false"/>
-    <div class="title-with-lines" id="main-title"><h1>People</h1></div>
+    <div class="title-with-lines" id="main-title"><h1>Le Nostre Voci</h1></div>
     <section>
         <div class="two-columns">
             <img src="/img/people/collaboration.webp" alt=""/>
             <div>
-                <p>At Brave Sister Center, our team consists of highly qualified professionals dedicated to supporting
-                    women in need. Our staff includes psychologists specialized in gender-based violence, social workers
-                    experienced in women's rights, lawyers knowledgeable in legal issues related to domestic violence,
-                    and healthcare providers offering medical and psychological assistance. Additionally, we collaborate
-                    with volunteers and interns who contribute to our daily work with passion and dedication.</p>
+                <p>Il Coro di Trezzano è composto da un gruppo di appassionati cantanti che si dedicano a portare la musica nelle chiese di Trezzano e oltre. Il nostro coro è aperto a tutti coloro che desiderano unirsi a noi per esprimere la propria fede attraverso il canto. Siamo sempre alla ricerca di nuove voci e talenti!</p>
             </div>
         </div>
         <section>
-            <div class="title-with-lines"><h2>Our People</h2></div>
+            <div class="title-with-lines"><h2>I Nostri Membri</h2></div>
             <div class="elements-list">
                 <ListComponent
                         v-for="person in people.slice(0, shown)"
@@ -62,10 +57,11 @@ useHead({
                 />
             </div>
             <div id="showMore">
-                <button v-show="shown < numberOfPeople" @click="showMore">Show more people</button>
+                <button v-show="shown < numberOfPeople" @click="showMore">Mostra più membri</button>
             </div>
         </section>
     </section>
+    
 </template>
 
 <style scoped>

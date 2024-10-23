@@ -1,21 +1,21 @@
 <script setup lang="js">
 
 useHead({
-  title: "About us - Brave Sisters",
+  title: "Chi Siamo - Coro Voci di Trezzano",
   meta:[
     {
       name:"description",
-      content:"In this page we can find a short description of the mission of our association and an other one about our history." +
-          "After that we can find the location of our site and our opening time."
+      content:"In questa pagina trovi una breve descrizione della missione del nostro coro e della nostra storia." +
+          "Dopo, puoi trovare la posizione del nostro coro e gli orari di apertura."
     },
     {
       name:"keywords",
-      content: "About us, information, center, history"
+      content: "Chi siamo, coro, Trezzano, musica, comunità"
     }
   ]
 })
 
-const paragraphs = ['YOUR ALLY,', 'FOR YOUR FREEDOM']
+const paragraphs = ['IL CANTO', 'DONA AMORE']
 const mainImagePath = "/img/about-us-MAIN.png"
 </script>
 
@@ -25,48 +25,25 @@ const mainImagePath = "/img/about-us-MAIN.png"
             :paragraphs="paragraphs"
             :photo-src="mainImagePath"
             :left="false"/>
-        <div class="title-with-lines" id="main-title"><h1>About us</h1></div>
+        <div class="title-with-lines" id="main-title"><h1>Chi Siamo</h1></div>
         <section>
             <section class="two-columns">
                 <div>
-                    <div class="title-with-lines"><h2>Mission</h2></div>
+                    <div class="title-with-lines"><h2>Missione</h2></div>
                     <p>
-                        The mission of Brave Sister Center is to provide unwavering support, empowerment, and resources
-                        to women
-                        facing adversity, particularly those experiencing violence and family maltreatment. Through
-                        compassionate care and tailored services, we strive to create a safe haven where women can find
-                        solace,
-                        regain their confidence, and rebuild their lives. Our dedicated team works tirelessly to foster
-                        a
-                        community of resilience and healing, and advocating for justice and equality for all women. At
-                        Brave
-                        Sister, we believe in the power of solidarity and the potential for positive change, endeavoring
-                        to
-                        break the cycle of violence and cultivate a future where every woman can thrive free from fear.
+                        La missione del Coro Voci di Trezzano è quella di unire le persone attraverso la musica e il canto, creando un ambiente accogliente e inclusivo per tutti coloro che desiderano esprimere la propria fede e passione per la musica. Vogliamo contribuire alla vita comunitaria, portando gioia e armonia nelle celebrazioni religiose e negli eventi pubblici.
                     </p>
                 </div>
                 <div>
-                    <div class="title-with-lines"><h2>History</h2></div>
+                    <div class="title-with-lines"><h2>Storia</h2></div>
                     <p>
-                        Brave Sister Center was founded in 2006 by a group of passionate individuals dedicated to
-                        addressing
-                        the urgent need for support and advocacy for women facing violence and family maltreatment.
-                        Despite
-                        the challenges we have faced along the way, our commitment to our mission has never wavered.
-                        With
-                        each passing year, we have continued to adapt and innovate, striving to create a more inclusive
-                        and
-                        supportive environment for all women. As we look to the future, we remain steadfast in our
-                        belief
-                        that every woman deserves to live a life free from violence and fear, and we are dedicated to
-                        doing
-                        everything in our power to make that vision a reality.
+                        Il Coro Voci di Trezzano è stato fondato nel 2006 da un gruppo di appassionati di musica e canto. Da allora, abbiamo lavorato instancabilmente per creare un coro che non solo esegue musica nelle chiese di Trezzano, ma che si impegna anche in eventi e concerti nella comunità. Ogni anno, accogliamo nuovi membri e continuiamo a crescere, mantenendo viva la nostra passione per la musica e il canto.
                     </p>
                 </div>
             </section>
             <img id="center-picture" src="/img/homepage/building_photo.webp" alt=""/>
             <section>
-                <div class="title-with-lines"><h2>Location</h2></div>
+                <div class="title-with-lines"><h2>Posizione</h2></div>
                 <section class="two-columns">
                     <div class="map">
                         <iframe
@@ -80,12 +57,12 @@ const mainImagePath = "/img/about-us-MAIN.png"
                         </iframe>
                     </div>
                     <div>
-                        <h6>Opening hours</h6>
-                        <p>Mon - Fri: 9:00 - 12:00 / 13:00 - 18:00<br>
-                        Saturday: 9:00 - 12:00<br>
-                            Sunday: Closed<br></p>
-                        <h6>Address</h6>
-                        <p>Via di Grignano 102, Prato</p>
+                        <h6>Orari di apertura</h6>
+                        <p>Lunedì - Venerdì: 9:00 - 12:00 / 13:00 - 18:00<br>
+                        Sabato: 9:00 - 12:00<br>
+                        Domenica: Chiuso<br></p>
+                        <h6>Indirizzo</h6>
+                        <p>Via di Grignano 102, Trezzano sul Naviglio</p>
                     </div>
                 </section>
             </section>

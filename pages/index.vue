@@ -24,7 +24,7 @@ onMounted(() => {
 })
 
 useHead({
-  title: "Home - Coro delle Chiese di Trezzano",
+  title: "Home - Coro delle voci di Trezzano",
   meta:[
     {
       name:"description",
