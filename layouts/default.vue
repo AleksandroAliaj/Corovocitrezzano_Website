@@ -105,9 +105,9 @@ function convert(message) {
             <img alt="" class="logo" src="@/assets/logos/logo.png"/>
             <div>
                 <div class="title-with-lines" id="main-title">
-                    <h1>Brave Sisters</h1>
+                    <h1>coro voci</h1>
                 </div>
-                <h2>ONE FOR ALL, ALL FOR WOMEN</h2>
+                <h2>Uniti per una comunità più forte, Trezzano S/N</h2>
             </div>
         </div>
         <div>
@@ -173,24 +173,22 @@ function convert(message) {
             <div style="border-radius: 15px 15px 15px 5px; background-color:  rgba(255,255,255,0.8);">
                 <img class="ourIcon" src="@/assets/icons/address.png" alt=""/>
                 <div style="display: initial;">
-                    <p style="letter-spacing: .1rem;">ADDRESS</p>
-                    <p>Via di Grignano, 102 - Prato (PO)</p>
+                    <p style="letter-spacing: .1rem;">LOCALITA'</p>
+                    <p>Trezzano Sul Naviglio, Milano</p>
                 </div>
 
             </div>
             <div style="border-radius: 15px; background-color:  rgba(255,255,255,0.8);">
                 <img class="ourIcon" src="@/assets/icons/hour.png" alt=""/>
                 <div style="display: initial;">
-                    <p style="letter-spacing: .1rem;">OPENING HOURS</p>
-                    <p>Mon - Fri: 9:00 - 12:00 | 13:00 - 18:00<br>
-                        Saturday: 9:00 - 12:00 <br>
-                        Sunday: Closed</p>
+                    <p style="letter-spacing: .1rem;">VIENI A SENTIRCI</p>
+                    <p></p>
                 </div>
             </div>
             <div style="border-radius: 15px 15px 5px 15px; background-color:  rgba(255,255,255,0.9);">
                 <img class="ourIcon" src="@/assets/icons/phone-call.png" alt=""/>
                 <div style="display: initial;">
-                    <p style="letter-spacing: .1rem;">PHONE NUMBER</p>
+                    <p style="letter-spacing: .1rem;">PER INFORMAZIONI</p>
                     <p>+39 0574 53695</p>
                 </div>
             </div>
