@@ -189,12 +189,12 @@ function convert(message) {
                 <img class="ourIcon" src="@/assets/icons/phone-call.png" alt=""/>
                 <div style="display: initial;">
                     <p style="letter-spacing: .1rem;">PER INFORMAZIONI</p>
-                    <p>+39 0574 53695</p>
+                    <p>+39 </p>
                 </div>
             </div>
 
         </div>
-        <div id="bottom-bar">Copyright 2024 - Brave Sisters - All rights reserved</div>
+        <div id="bottom-bar">Copyright 2024 - Coro Voci Trezzano - All rights reserved</div>
     </footer>
 </template>
 

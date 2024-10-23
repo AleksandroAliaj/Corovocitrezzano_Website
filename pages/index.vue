@@ -7,7 +7,7 @@ const imgBasePath = "/img/homepage/home_";
 const numberOfImages = 6;
 
 const paragraphs = ['CANTA CON NOI,', 'UNISCI LA TUA VOCE', 'PER UNA COMUNITÀ PIÙ FORTE']
-const mainImagePath = "/img/homepage/MAIN.webp"
+const mainImagePath = "/img/homepage/MAIN.png"
 
 const textVisibility = ref([false, false, false]);
 
