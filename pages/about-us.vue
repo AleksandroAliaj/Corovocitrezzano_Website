@@ -41,7 +41,7 @@ const mainImagePath = "/img/about-us-MAIN.png"
                     </p>
                 </div>
             </section>
-            <img id="center-picture" src="/img/homepage/building_photo.webp" alt=""/>
+            <img id="center-picture" src="/img/homepage/building_photo.jpg" alt=""/>
             <section>
                 <div class="title-with-lines"><h2>Posizione</h2></div>
                 <section class="two-columns">
@@ -57,12 +57,9 @@ const mainImagePath = "/img/about-us-MAIN.png"
                         </iframe>
                     </div>
                     <div>
-                        <h6>Orari di apertura</h6>
-                        <p>Lunedì - Venerdì: 9:00 - 12:00 / 13:00 - 18:00<br>
-                        Sabato: 9:00 - 12:00<br>
-                        Domenica: Chiuso<br></p>
-                        <h6>Indirizzo</h6>
-                        <p>Via di Grignano 102, Trezzano sul Naviglio</p>
+                        <h6>Dove ci trovi</h6>
+                        <p>Trezzano sul Naviglio, Milano</p>
+                        
                     </div>
                 </section>
             </section>

@@ -1,6 +1,65 @@
 <script setup lang="js">
 import {ref} from 'vue';
 
+const inspirationalQuotes = [
+    "La musica è l’arte invisibile che ci permette di comunicare senza barriere, di parlare attraverso note che risuonano nei cuori di chi ascolta.",
+    "Cantare è molto più che emettere suoni; è dare voce alla nostra anima, trasmettere ciò che le parole da sole non possono esprimere.",
+    "Il coro è come un grande abbraccio fatto di voci, dove ognuno porta la propria unicità per creare un’armonia indimenticabile.",
+    "Quando cantiamo insieme, la nostra voce diventa più grande, più forte e più bella, un messaggio di unione che vola nell’aria.",
+    "La musica ha il potere di farci viaggiare dentro noi stessi e, allo stesso tempo, di connetterci con chiunque intorno a noi.",
+    "Ogni canzone cantata in coro è una storia che prende vita, un viaggio che porta ognuno di noi in un luogo di pace e armonia.",
+    "Attraverso il canto, diamo forma ai nostri sogni e rendiamo eterno ogni sentimento, trasformando ogni emozione in melodia.",
+    "Un coro è un insieme di voci e di anime; ogni nota è un pezzo di storia, ogni armonia un ricordo condiviso.",
+    "La musica è un linguaggio che parla direttamente al cuore, un dialogo tra chi canta e chi ascolta, al di là di qualsiasi parola.",
+    "Cantare insieme è come respirare all'unisono, creare un ritmo comune che lega i nostri cuori in un'unica pulsazione.",
+    "Quando le nostre voci si uniscono, creiamo una forza invisibile che può emozionare, confortare, ispirare e cambiare il mondo.",
+    "Ogni coro è un piccolo miracolo: persone diverse che diventano una sola anima, che trasformano la loro diversità in armonia.",
+    "Cantare in un coro è ascoltare l’altro con rispetto, cercare l’armonia e costruire insieme qualcosa che supera le nostre singole voci.",
+    "La musica è la voce dell'universo, e quando la cantiamo, diventiamo parte di un qualcosa di più grande, di infinito.",
+    "La vera magia della musica sta nel potere di portare serenità dove c’è caos, e di creare bellezza dove prima non c'era nulla.",
+    "Ogni volta che cantiamo insieme, celebriamo la bellezza della vita, ricordando che siamo tutti parte di un’unica melodia.",
+    "Cantare è come fare un dono: la nostra voce si unisce a quella degli altri e si diffonde nell'aria come una carezza sonora.",
+    "Il coro è una famiglia di suoni e di anime che si sostengono a vicenda, creando una musica che sa di speranza e di armonia.",
+    "Quando canti con il cuore, puoi toccare chiunque, ovunque, perché la musica è un linguaggio che ogni anima può comprendere.",
+    "Ogni prova, ogni brano è un’occasione per crescere insieme, per perfezionare le nostre voci e trovare un equilibrio collettivo.",
+    "La musica ci insegna che la bellezza può nascere anche dalla semplicità, che ogni piccola nota può fare la differenza.",
+    "Il coro è un luogo dove le voci diventano abbracci, dove ogni suono è un invito alla connessione e alla condivisione.",
+    "Ogni canzone è una promessa di speranza, un modo per ricordarci che, anche nei momenti difficili, la bellezza esiste.",
+    "Cantare ci libera, ci permette di esprimere chi siamo e di raccontare le nostre storie attraverso una melodia condivisa.",
+    "Un coro è un sogno di suoni e di voci che si uniscono, una poesia scritta insieme per celebrare la vita e l’umanità.",
+    "La musica ci insegna ad ascoltare e ad ascoltarci, a capire che solo insieme possiamo creare qualcosa di veramente grande.",
+    "Ogni volta che cantiamo, doniamo una parte di noi stessi, un pezzo di cuore che si fonde con le voci di chi ci sta accanto.",
+    "La musica è un vento che soffia tra di noi, che accarezza i nostri cuori e ci ricorda che l’armonia è possibile.",
+    "Cantare è un atto di coraggio e di amore, un modo per aprire il cuore e lasciare che gli altri vi entrino attraverso il suono.",
+    "La musica è la nostra guida silenziosa, che ci accompagna attraverso i momenti più bui e quelli più luminosi della vita.",
+    "Il coro è un universo di voci che si intrecciano, che insieme formano un mosaico sonoro fatto di sogni e di speranza.",
+    "Cantare insieme è come un viaggio condiviso, dove ognuno porta la sua esperienza, la sua storia, il suo cuore.",
+    "Attraverso il canto, possiamo arrivare dove le parole non possono, raggiungere angoli dell'anima nascosti e lontani.",
+    "Il coro ci insegna a cercare l’armonia, a rispettare la diversità, a capire che ogni voce è indispensabile per creare bellezza.",
+    "Cantare è come volare insieme, al di sopra dei problemi quotidiani, in un mondo fatto di note e di pura emozione.",
+    "La musica è un rifugio, un luogo dove possiamo essere noi stessi, condividere gioie, dolori, speranze e sogni.",
+    "Ogni nota è un pezzo di vita, un ricordo che risuona nell’aria e trova posto nel cuore di chi lo ascolta.",
+    "Cantare in coro è come creare un ponte fatto di suoni e di emozioni, che ci connette in un modo unico e speciale.",
+    "La musica è la forza che ci unisce, che ci ricorda che siamo tutti parte di un’unica, grande melodia.",
+    "Ogni canzone è un momento di libertà, un'opportunità per esprimere ciò che le parole non possono dire.",
+    "Il coro è un luogo dove si costruisce un’armonia comune, dove ogni voce trova la sua parte e contribuisce al tutto.",
+    "Cantare è un modo per rendere visibili le emozioni, per trasformare i sentimenti in qualcosa che gli altri possono sentire.",
+    "Quando cantiamo insieme, siamo una sola anima, un solo battito, un solo respiro che racconta la bellezza della vita.",
+    "La musica è una luce che illumina la nostra strada, un compagno silenzioso che ci sostiene anche nei momenti difficili.",
+    "Cantare in coro è come danzare all'unisono, una sinfonia di movimenti che si fondono in una sola melodia.",
+    "Ogni volta che cantiamo, creiamo un ricordo condiviso, un momento che rimarrà con noi per sempre.",
+    "La musica è come un sogno che si diffonde, un respiro di speranza che ci ricorda la bellezza dell'essere vivi.",
+    "Cantare insieme ci ricorda che non siamo soli, che ogni nota è un legame che ci unisce e ci avvicina agli altri.",
+    "Ogni melodia che creiamo insieme è un dono, un pezzo di vita che condividiamo con chi ci sta accanto.",
+    "Il coro è un luogo di gioia, un rifugio dove possiamo essere noi stessi, dove ogni voce trova il suo spazio.",
+    "La musica è un'onda che ci trasporta, un respiro che ci unisce e ci invita a vedere la bellezza che ci circonda."
+];
+
+
+// Seleziona una frase casuale
+const randomQuote = inspirationalQuotes[Math.floor(Math.random() * inspirationalQuotes.length)];
+
+
 onUpdated(() => {
     // To close the menu if open on the mobile
     changeDisplay(null, document.querySelector("nav"), "none")
@@ -38,9 +97,7 @@ let history = [];
 
 const messages = ref([{
     role: "model",
-    parts: [{text: "Hello! I'm the <b>Brave Sisters bot</b>, and I'm here to answer all your questions for the <b>current legislation in Italy</b> against domestic violence and if you're in trouble in <b>finding information on this website</b>.<br><br>" +
-            "Ask me whatever you want about these topics, but please, be detailed on your situation so that I can give you precise and exhaustive answers. <br><br> " +
-            "Remember, you're <b>not alone!</b> Your safety is our job."}]
+    parts: [{text: randomQuote}]
 }])
 
 const inputValue = ref('');
@@ -147,7 +204,7 @@ function convert(message) {
              id="chatbot-icon" @click="showChatbot()" src="@/assets/icons/chatbot.png" alt="Open chatbot"/>
         <div id="chatbot" style="display: none;">
             <div id="chatbot-top-bar">
-                <p>Ask me!</p>
+                <p>Ispirazione del giorno</p>
                 <img src="@/assets/icons/delete.png"
                      tabindex="0" v-on:keyup.enter="showChatbot"
                      @click="showChatbot()" alt="Close chatbot"/>
@@ -158,11 +215,8 @@ function convert(message) {
                 </template>
 
             </div>
-            <div id="chatbot-send-bar">
-                <input aria-labelledby="chatbot-send-bar" v-model="inputValue" v-on:keyup.enter="onChatbotSend()"
-                       placeholder="Send a message to the bot."/>
-                <img tabindex="0" src="@/assets/icons/send-icon.png"
-                     @click="onChatbotSend()" alt="Send message to the chatbot"/>
+            <div >
+                
             </div>
         </div>
         <slot/>
@@ -312,9 +366,9 @@ a:hover {
 /****************************** CHATBOT ********************************/
 #chatbot-icon {
     position: fixed;
-    width: 90px;
+    width: 80px;
     z-index: 111;
-    right: -10px;
+    right: 1px;
     bottom: 5%;
     padding: 10px;
     cursor: pointer;
@@ -333,7 +387,7 @@ a:hover {
     right: 2%;
     bottom: 8%;
     width: 40%;
-    height: 70%;
+    height: 25%;
     background-color: #ffffff;
     border: 5px solid #4c8189;
     border-radius: 10px;
@@ -379,7 +433,7 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 10%;
+    height: 17%;
     font-size-adjust: revert;
 }
 
@@ -543,7 +597,7 @@ footer p {
         background-image: url("/footer600.webp");
     }
     #chatbot{
-        height: 80%;
+        height: 25%;
     }
 
 
@@ -560,7 +614,7 @@ footer p {
         width: 60px;
     }
     #chatbot-send-bar {
-        width: calc(100% - 90px);
+        width: calc(100%);
     }
 }
 

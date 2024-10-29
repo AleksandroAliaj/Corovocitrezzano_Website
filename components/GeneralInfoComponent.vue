@@ -5,6 +5,7 @@
 
 <script setup lang="js">
 import {useRouter} from "vue-router";
+import People from "~/pages/people.vue";
 
 const router = useRouter();
 const props = defineProps({
@@ -14,7 +15,7 @@ const props = defineProps({
     content: String,
     context: {
         type: String,
-        default: 'people'
+        default: 'Voci'
     },
     total: Number
 });
@@ -34,13 +35,13 @@ const getNextId = () => {
 };
 
 const getImageSrc = () => {
-    return `/img/${props.context}/${props.id}.webp`;
+    return `/img/People/${props.id}.webp`;
 };
 </script>
 
 <template>
     <div class="back-to">
-        <button @click="router.push(`/` + props.context);">< Up to all {{ props.context }}</button>
+        <button @click="router.push(`/people`);">< Ritorna alla lista delle persone</button>
     </div>
     <div class="title-with-lines"><h2>{{ props.context }}</h2></div>
     <NuxtLink class="desktopVisible" :href="getPrevId()">

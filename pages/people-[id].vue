@@ -15,17 +15,16 @@ const person = computed(() => peopleStore.getPerson(parseInt(personId.value, 10)
 const projects = computed(() => projectStore.getPersonProjects(parseInt(personId.value, 10)));
 const services = computed(() => serviceStore.getPersonServices(parseInt(personId.value, 10)));
 
-const SEOData = computed( () => new Object ({
-    title: person.value ? (person.value.name + " " + person.value.surname + " - Brave Sisters") : ("Person not found! - Brave Sisters"),
+const SEOData = computed(() => new Object ({
+    title: person.value ? (`${person.value.name} ${person.value.surname} - Coro Voci di Trezzano`) : ("Persona non trovata! - Coro Voci di Trezzano"),
     meta: [
         {
             name: "description",
-            content: "This page contains a short curriculum of " + person.value?.name + ". After that we can find all the activities for which he/she is responsible "
-
+            content: person.value ? (`Scopri il profilo di ${person.value.name} ${person.value.surname}, membro del Coro Voci di Trezzano. Qui puoi trovare informazioni sul suo ruolo, le attività e i progetti a cui partecipa.`) : ("Scopri il profilo di un membro del Coro Voci di Trezzano.")
         },
         {
             name: "keywords",
-            content: person.value?.name + ", " + person.value?.role
+            content: person.value ? (`Coro Voci di Trezzano, ${person.value.name}, ${person.value.role}, musica, coro, attività`) : ("Coro Voci di Trezzano, membri, musica, coro")
         }
     ]
 }))
@@ -44,7 +43,7 @@ const SEOData = computed( () => new Object ({
                     :name="`${person.name} ${person.surname}`"
                     :subtitle="person.role"
                     :content="person.description"
-                    context="people"
+                    context="Voci"
                     :total=20
             />
         </section>

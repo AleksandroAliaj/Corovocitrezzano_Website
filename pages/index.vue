@@ -102,18 +102,18 @@ function goToServices() {
                     </div>
                 <div class="two-columns">
                         <div>
-                            <div class="title-with-lines"><h2>Progetti</h2></div>
+                            <div class="title-with-lines"><h2>Documenti</h2></div>
                             <div class="image-container" @click="goToProjects">
-                                <img src="/img/homepage/1.webp" alt="Vai ai progetti"/>
-                                <div class="hover-text">Scopri i nostri progetti</div>
+                                <img src="/img/homepage/2.webp" alt="Vai ai documenti"/>
+                                <div class="hover-text">Scopri i nostri documenti</div>
                                 <div class="hover-overlay"></div>
                             </div>
                         </div>
                         <div>
-                            <div class="title-with-lines"><h2>Servizi</h2></div>
+                            <div class="title-with-lines"><h2>Video</h2></div>
                             <div class="image-container" @click="goToServices">
-                                <img src="/img/homepage/2.webp" alt="Vai ai servizi"/>
-                                <div class="hover-text">Scopri i nostri servizi</div>
+                                <img src="/img/homepage/1.webp" alt="Vai ai video"/>
+                                <div class="hover-text">Scopri i nostri video</div>
                                 <div class="hover-overlay"></div>
                             </div>
                         </div>
