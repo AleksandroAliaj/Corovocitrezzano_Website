@@ -15,7 +15,7 @@ const props = defineProps({
     content: String,
     context: {
         type: String,
-        default: 'Voci'
+        default: 'People'
     },
     total: Number
 });
