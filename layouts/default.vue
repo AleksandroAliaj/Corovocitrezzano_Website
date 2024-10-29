@@ -156,6 +156,10 @@ function convert(message) {
 </script>
 
 <template>
+    <head>
+        <link rel="icon" type="image/png" href="@/assets/logos/logo.png" />
+        <title>Coro Voci Trezzano</title>
+    </head>
     <header>
         <div @click="$router.push('/')" style="cursor: pointer;"
         tabindex="0" v-on:keyup.enter="$router.push('/')">
