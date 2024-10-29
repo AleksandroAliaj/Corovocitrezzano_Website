@@ -156,6 +156,9 @@ function convert(message) {
 </script>
 
 <template>
+    <head>
+        <meta name="google-site-verification" content="b6omG0lu_N5BAUiBPH1Mm4JMfihLzLE2ls9PEY9HsYw" />
+    </head>
     <header>
         <div @click="$router.push('/')" style="cursor: pointer;"
         tabindex="0" v-on:keyup.enter="$router.push('/')">
