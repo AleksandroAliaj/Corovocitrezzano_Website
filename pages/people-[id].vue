@@ -43,7 +43,7 @@ const SEOData = computed(() => new Object ({
                     :name="`${person.name} ${person.surname}`"
                     :subtitle="person.role"
                     :content="person.description"
-                    context="Voci"
+                    context="People"
                     :total=20
             />
         </section>

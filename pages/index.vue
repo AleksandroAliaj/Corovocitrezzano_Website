@@ -1,7 +1,114 @@
 <script setup lang="js">
-import {onMounted, ref} from 'vue';
 import {useRouter} from 'vue-router';
+import {useRoute} from 'vue-router';
+import {usePeopleStore} from '@/stores/people.ts';
+import {computed, ref, reactive, onMounted} from 'vue';
+import {useServiceStore} from "~/stores/services.ts";
+import {useReviewStore} from "~/stores/reviews.ts";
+import ListComponent from "~/components/ListComponent.vue";
 
+const route = useRoute();
+const peopleStore = usePeopleStore();
+const serviceStore = useServiceStore();
+const reviewStore = useReviewStore();
+let numberOfShownReviews = ref(3);
+let feedbackMessage = ref('')
+
+function checkWindowSize() {
+    if (window.innerWidth < 800)
+        numberOfShownReviews.value = 1;
+    else if (window.innerWidth < 1200)
+        numberOfShownReviews.value = 2;
+    else if (window.innerWidth < 1600)
+        numberOfShownReviews.value = 3;
+    else
+        numberOfShownReviews.value = 4;
+}
+
+onMounted(() => {
+    checkWindowSize()
+    window.addEventListener("resize", () => {
+        checkWindowSize()
+    });
+})
+
+const serviceId = computed(() => route.params.id);
+const service = computed(() => serviceStore.getService(parseInt(serviceId.value, 10)));
+const person = computed(() => peopleStore.getPerson(service.value?.person));
+let review = computed(() => (reviewStore.review.filter((r) => r.service === 1)));
+const shownReviews = computed(() => review.value.slice(reviewsIndex.value, reviewsIndex.value + numberOfShownReviews.value))
+
+
+const inputReview = reactive({
+    name: '',
+    surname: '',
+    comment: '',
+    date: '',
+    service: 1
+})
+
+let sendingReview = {
+    name: '',
+    surname: '',
+    comment: '',
+    date: '',
+    service: 1
+}
+
+async function addReview(event) {
+    event.preventDefault();
+    sendingReview.date = inputReview.date || new Date().toISOString().substring(0, 10); // Usa la data inserita o quella attuale
+    sendingReview.name = inputReview.name;
+    sendingReview.surname = inputReview.surname;
+    sendingReview.comment = inputReview.comment;
+    reviewStore.addReview(sendingReview).then(error => {
+        if (error)
+            feedbackMessage.value = error;
+        else
+            feedbackMessage.value = 'Un nuovo evento è stato registrato';
+    });
+    inputReview.name = '';
+    inputReview.surname = '';
+    inputReview.comment = '';
+    inputReview.date = ''; // Reset campi form
+    showForm.value = false; // Nascondi il form dopo l'invio
+}
+
+let numberOfReviews = computed(() => review.value.length);
+let reviewsIndex = ref(0);
+
+let showPasswordInput = ref(false);
+let adminPassword = ref("");
+let showForm = ref(false); // Visibilità del form di recensione
+
+function togglePasswordInput() {
+    showPasswordInput.value = true;
+}
+
+function checkAdminPassword() {
+    if (adminPassword.value === "nuovoevento") {
+        showForm.value = true;
+        showPasswordInput.value = false;
+        feedbackMessage.value = ""; // Pulisce eventuali messaggi di errore
+    } else {
+        feedbackMessage.value = "Non sei l'amministratore";
+    }
+}
+
+const SEOData = computed(() => new Object({
+    title: service.value ? service.value.name + " - Brave Sisters" : "Service not found - Brave Sisters",
+    meta: [
+        {
+            name: "description",
+            content: "This page contains a short description of " + service.value?.name + ". After that we can find the referent of this activity and the end some correlated images"
+
+        },
+        {
+            name: "keywords",
+            content: service.value?.name
+        }
+    ]
+}))
 const router = useRouter();
 const imgBasePath = "/img/homepage/home_";
 const numberOfImages = 6;
@@ -84,13 +191,67 @@ function goToServices() {
                 <div>
                     <div>
                         <p>Il coro partecipa regolarmente a diverse celebrazioni ed eventi speciali. Ecco alcuni dei prossimi appuntamenti dove puoi ascoltarci:</p>
-                        <ul>
-                            <li>Messa Solenne a Santa Gianna, domenica alle 10:30</li>
-                            <li>Concerto di Natale a Sant'Ambrogio, il 24 dicembre</li>
-                            <li>Prove aperte al pubblico ogni venerdì sera</li>
-                        </ul>
-                        <p>Ti invitiamo a unirti a noi o a venire a sentirci in questi eventi. La musica è una parte fondamentale della nostra vita comunitaria!</p>
+                        
+                        
                     </div>
+                    <div id="reviews">
+                        <NuxtLink v-show="numberOfReviews > numberOfShownReviews && reviewsIndex > 0" @click="reviewsIndex--;">
+        <img alt="Left arrow" class="arrow" src="@/assets/icons/left-arrow.png"/>
+    </NuxtLink>
+    <div class="elements-list">
+        <ListComponent
+            v-for="review in shownReviews"
+            :name="`${review.name} ${review.surname}`"
+            :subtitle="`${new Date(review.date).toLocaleDateString('eng-us')}`"
+            :type="'review'"
+            :content="`${review.comment}`"
+        />
+    </div>
+    <NuxtLink
+        v-show="numberOfReviews > numberOfShownReviews && reviewsIndex + numberOfShownReviews !== numberOfReviews"
+        @click="reviewsIndex++">
+        <img alt="Right arrow" class="arrow" src="@/assets/icons/right-arrow.png"/>
+    </NuxtLink>
+</div>
+<button class="centered-button" @click="togglePasswordInput">+</button>
+
+<div v-if="showPasswordInput" class="password-container">
+    <input type="password" v-model="adminPassword" placeholder="Inserisci password" />
+    <div style="margin-right: 20px;"></div>
+    <div style="margin-bottom: 20px;"></div>
+    <button @click="checkAdminPassword">Invia</button>
+    <p v-if="feedbackMessage">{{ feedbackMessage }}</p>
+</div>
+
+<h3 v-if="showForm">Aggiungi un nuovo evento</h3>
+<form v-if="showForm" id="form">
+    <div class="form-row">
+        <div class="form-group">
+            <label for="name">Luogo</label>
+            <input v-model="inputReview.name" type="text" id="name" name="name" />
+        </div>
+        <div class="form-group">
+            <label for="surname">Ora</label>
+            <input v-model="inputReview.surname" type="text" id="surname" name="surname" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="date">Data</label>
+        <input v-model="inputReview.date" type="date" id="date" name="date" />
+    </div>
+    <div class="form-group full-width">
+        <label for="comment">Descrizione</label>
+        <textarea v-model="inputReview.comment" id="comment" name="comment"></textarea>
+    </div>
+    <br />
+    <input type="submit" value="Add review" @click="addReview($event)" class="submit" />
+</form>
+
+            <div class="confirmation-message">
+                {{ feedbackMessage }}
+                
+            </div>
+        
                 </div>
             </section>
             <section id="activities">
@@ -128,6 +289,45 @@ function goToServices() {
 </template>
 
 <style scoped>
+
+.centered-button {
+    display: block;
+    margin: 20px auto;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.password-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+main {
+    padding-top: 30px;
+}
+
+.arrow {
+    width: 60px;
+}
+
+#review-section {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#reviews {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#form {
+    margin-top: 20px;
+}
+
 * {
     margin: 0;
     box-sizing: border-box;

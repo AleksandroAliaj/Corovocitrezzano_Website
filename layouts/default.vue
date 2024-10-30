@@ -390,7 +390,7 @@ a:hover {
     right: 2%;
     bottom: 8%;
     width: 40%;
-    height: 25%;
+    height: 26%;
     background-color: #ffffff;
     border: 5px solid #4c8189;
     border-radius: 10px;
@@ -600,7 +600,7 @@ footer p {
         background-image: url("/footer600.webp");
     }
     #chatbot{
-        height: 25%;
+        height: 26%;
     }
 
 
