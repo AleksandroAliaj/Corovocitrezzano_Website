@@ -302,9 +302,7 @@ function goToServices() {
     margin-top: 15px;
 }
 
-main {
-    padding-top: 30px;
-}
+
 
 .arrow {
     width: 60px;
