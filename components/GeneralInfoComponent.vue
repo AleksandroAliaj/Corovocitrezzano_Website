@@ -35,7 +35,7 @@ const getNextId = () => {
 };
 
 const getImageSrc = () => {
-    return `/img/People/${props.id}.webp`;
+    return `/img/people/${props.id}.webp`;
 };
 </script>
 
