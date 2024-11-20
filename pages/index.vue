@@ -159,20 +159,55 @@ function checkAdminPassword() {
         feedbackMessage.value = "Non sei l'amministratore";
     }
 }
-
+useHead({
+  title: "Coro Voci Trezzano - Canto Corale a Trezzano sul Naviglio",
+  meta: [
+    {
+      name: "description",
+      content: "Il Coro delle Voci di Trezzano, attivo nelle Chiese di Santa Gianna e Sant'Ambrogio. Unisciti a noi per celebrazioni liturgiche, concerti e attività comunitarie. Appassionati di musica corale benvenuti!"
+    },
+    {
+      name: "keywords",
+      content: "coro trezzano, trezzano sul naviglio, canto corale, coro liturgico, santa gianna, sant'ambrogio, trezzano sul naviglio, musica sacra, coro parrocchiale, concerti, musica corale"
+    },
+    {
+      name: "og:title",
+      content: "Coro Voci Trezzano - Canto Corale a Trezzano sul Naviglio"
+    },
+    {
+      name: "og:description", 
+      content: "Scopri il nostro coro: passione, musica e comunità. Unisciti a noi nelle chiese di Santa Gianna e Sant'Ambrogio."
+    },
+    {
+      property: "og:type",
+      content: "website"
+    }
+  ]
+}) 
 const SEOData = computed(() => new Object({
-    title: service.value ? service.value.name + " - Coro Voci Trezzano" : " Coro Voci trezzano",
-    meta: [
-        {
-            name: "description",
-            content: "This page contains a short description of " + service.value?.name + ". After that we can find the referent of this activity and the end some correlated images"
-
-        },
-        {
-            name: "keywords",
-            content: service.value?.name
-        }
-    ]
+    title: "Coro Voci Trezzano - Canto Corale a Trezzano sul Naviglio",
+  meta: [
+    {
+      name: "description",
+      content: "Il Coro delle Voci di Trezzano, attivo nelle Chiese di Santa Gianna e Sant'Ambrogio. Unisciti a noi per celebrazioni liturgiche, concerti e attività comunitarie. Appassionati di musica corale benvenuti!"
+    },
+    {
+      name: "keywords",
+      content: "coro trezzano, canto corale, coro liturgico, santa gianna, sant'ambrogio, trezzano sul naviglio, musica sacra, coro parrocchiale, concerti, musica corale"
+    },
+    {
+      name: "og:title",
+      content: "Coro Voci Trezzano - Canto Corale a Trezzano sul Naviglio"
+    },
+    {
+      name: "og:description", 
+      content: "Scopri il nostro coro: passione, musica e comunità. Unisciti a noi nelle chiese di Santa Gianna e Sant'Ambrogio."
+    },
+    {
+      property: "og:type",
+      content: "website"
+    }
+  ]
 }))
 const router = useRouter();
 const imgBasePath = "/img/homepage/home_";

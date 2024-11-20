@@ -4,6 +4,36 @@ import { ref, onMounted } from 'vue';
 const paragraphs = ['CONTATTACI', 'UNISCITI A NOI'];
 const mainImagePath = "/img/contact-us-MAIN.png";
 
+useHead({
+    title: "Contatta Coro Voci Trezzano - Informazioni e Iscrizioni",
+    meta: [
+        {
+            name: "description",
+            content: "Vuoi unirti al Coro Voci di Trezzano? Contattaci per informazioni su prove, eventi, iscrizioni e opportunità di canto corale a Trezzano sul Naviglio. Benvenuti tutti i livelli di esperienza!"
+        },
+        {
+            name: "keywords",
+            content: "contatti coro trezzano, iscrizione coro, canto corale trezzano, prove coro, musica sacra, coro parrocchiale, santa gianna, sant'ambrogio"
+        },
+        {
+            name: "og:title",
+            content: "Coro Voci Trezzano - Contatti e Unisciti a Noi"
+        },
+        {
+            name: "og:description", 
+            content: "Scopri come far parte del nostro coro. Contatti, FAQ e informazioni per musicisti di ogni livello a Trezzano sul Naviglio."
+        },
+        {
+            property: "og:type",
+            content: "website"
+        },
+        {
+            name: "robots",
+            content: "index, follow"
+        }
+    ]
+})
+
 const faq = [
     {
         question: "Dove si trova il Coro Voci di Trezzano?",

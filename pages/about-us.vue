@@ -1,16 +1,31 @@
 <script setup lang="js">
 
 useHead({
-  title: "Chi Siamo - Coro Voci di Trezzano",
-  meta:[
+  title: "Coro Voci Trezzano - Chi Siamo, Storia e Missione del Coro",
+  meta: [
     {
-      name:"description",
-      content:"In questa pagina trovi una breve descrizione della missione del nostro coro e della nostra storia." +
-          "Dopo, puoi trovare la posizione del nostro coro e gli orari di apertura."
+      name: "description",
+      content: "Scopri la storia, la missione e l'anima del Coro Voci di Trezzano. Fondata nel 2006, la nostra comunità musicale unisce passione, fede e armonia nelle chiese di Trezzano sul Naviglio. Unisciti a noi!"
     },
     {
-      name:"keywords",
-      content: "Chi siamo, coro, Trezzano, musica, comunità"
+      name: "keywords",
+      content: "coro voci trezzano, coro ecclesiastico, storia del coro, missione corale, canto liturgico, musica sacra, trezzano sul naviglio, coro parrocchiale, santa gianna, sant'ambrogio"
+    },
+    {
+      name: "og:title",
+      content: "Coro Voci Trezzano - La Nostra Storia, Missione e Comunità"
+    },
+    {
+      name: "og:description", 
+      content: "Dal 2006, il Coro Voci di Trezzano porta musica, fede e comunità nelle chiese di Santa Gianna e Sant'Ambrogio. Scopri chi siamo!"
+    },
+    {
+      property: "og:type",
+      content: "website"
+    },
+    {
+      name: "robots",
+      content: "index, follow"
     }
   ]
 })

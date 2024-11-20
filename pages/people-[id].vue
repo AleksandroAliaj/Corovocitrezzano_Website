@@ -5,6 +5,46 @@ import { computed, watch } from 'vue';
 import { useProjectStore } from '~/stores/projects.ts';
 import { useServiceStore } from '~/stores/services.ts';
 
+useHead({
+  title: person.value ? 
+    (`${person.name} ${person.surname} - Membro del Coro Voci Trezzano`) : 
+    ("Membri del Coro - Voci Trezzano"),
+  meta: [
+    {
+      name: "description",
+      content: person.value ? 
+        (`Scopri ${person.name} ${person.surname}, ${person.role} del Coro Voci di Trezzano. Partecipa a progetti corali, servizi musicali e attività comunitarie nelle chiese di Trezzano sul Naviglio.`) : 
+        ("Scopri i talenti e i membri del Coro Voci di Trezzano, una comunità musicale dedita al canto liturgico e corale.")
+    },
+    {
+      name: "keywords",
+      content: person.value ? 
+        (`Coro Voci Trezzano, ${person.name} ${person.surname}, ${person.role}, musica corale, canto liturgico, santa gianna, sant'ambrogio`) : 
+        ("Coro Voci Trezzano, membri del coro, musica corale, canto liturgico")
+    },
+    {
+      name: "og:title",
+      content: person.value ? 
+        (`${person.name} ${person.surname} - Membro del Coro Voci Trezzano`) : 
+        ("Membri del Coro Voci Trezzano")
+    },
+    {
+      name: "og:description", 
+      content: person.value ? 
+        (`Conosci ${person.name} ${person.surname}, ${person.role} del Coro Voci di Trezzano. Scopri il suo contributo alla nostra comunità musicale.`) : 
+        ("Scopri i talenti dietro il Coro Voci di Trezzano.")
+    },
+    {
+      property: "og:type",
+      content: "profile"
+    },
+    {
+      name: "robots",
+      content: "index, follow"
+    }
+  ]
+})
+
 const route = useRoute();
 const router = useRouter();
 const peopleStore = usePeopleStore();
