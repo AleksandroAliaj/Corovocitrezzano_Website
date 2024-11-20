@@ -161,7 +161,7 @@ function checkAdminPassword() {
 }
 
 const SEOData = computed(() => new Object({
-    title: service.value ? service.value.name + " - Brave Sisters" : "Service not found - Brave Sisters",
+    title: service.value ? service.value.name + " - Coro Voci Trezzano" : "Service not found - Coro Voci trezzano",
     meta: [
         {
             name: "description",
@@ -266,7 +266,7 @@ function goToServices() {
     <div class="elements-list">
         <ListComponent
             v-for="review in shownReviews"
-            :name="`${review.name} ${review.surname}`"
+            :name="`${review.location} ${review.hour}`"
             :subtitle="`${new Date(review.date).toLocaleDateString('eng-us')}`"
             :type="'review'"
             :content="`${review.comment}`"
@@ -303,7 +303,7 @@ function goToServices() {
                 :class="{ 'selected': selectedReviewToDelete === review.id }"
                 @click="selectedReviewToDelete = review.id"
             >
-                <p>{{ new Date(review.date).toLocaleDateString('it-IT') }} - {{ review.name }} {{ review.surname }}</p>
+                <p>{{ new Date(review.date).toLocaleDateString('it-IT') }} - {{ review.location }} {{ review.hour }}</p>
                 <p class="review-comment">{{ review.comment }}</p>
             </div>
         </div>

@@ -4,8 +4,8 @@ import {useFetch} from "#app";
 
 interface Review {
     id: number;
-    name: string;
-    surname: string;
+    location: string;
+    hour: string;
     date: string;
     comment: string;
     service: number;
@@ -15,9 +15,9 @@ export const useReviewStore = defineStore('review', () => {
     const review = reactive([] as Review[]);
 
     async function addReview(newReview: Review) {
-        if(newReview.name === '' || newReview.name === null)
+        if(newReview.location === '' || newReview.location === null)
             return 'You have to insert a name'
-        if(newReview.surname === '' || newReview.surname === null)
+        if(newReview.hour === '' || newReview.hour === null)
             return 'You have to insert a surname'
         if(newReview.comment === '' || newReview.comment === null)
             return 'You have to insert a comment'
