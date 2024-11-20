@@ -104,7 +104,7 @@ const _inlineRuntimeConfig = {
   },
   "public": {},
   "supabaseUrl": "https://uwwvcnrzsymmlbdstena.supabase.co",
-  "supabaseKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV3d3ZjbnJ6c3ltbWxiZHN0ZW5hIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyOTYzMDUxMCwiZXhwIjoyMDQ1MjA2NTEwfQ.NgVh3gRZteWiLppp9WYYdsLQlsybFJtCuAoXPpK_o8s"
+  "supabaseKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV3d3ZjcnJ6c3ltbWxiZHN0ZW5hIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyOTYzMDUxMCwiZXhwIjoyMDQ1MjA2NTEwfQ.NgVh3gRZteWiLppp9WYYdsLQlsybFJtCuAoXPpK_o8s"
 };
 const envOptions = {
   prefix: "NITRO_",

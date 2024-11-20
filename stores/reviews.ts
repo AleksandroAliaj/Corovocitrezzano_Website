@@ -26,6 +26,27 @@ export const useReviewStore = defineStore('review', () => {
         if (response.ok) review.push(newReview)
         else return 'Server error, please retry'
     }
+    
+    async function deleteReview(reviewId: number) {
+        try {
+            const response = await fetch(`/api/review/${reviewId}`, {
+                method: 'DELETE'
+            });
+            
+            if (response.ok) {
+                // Remove the review from the local state
+                const index = review.findIndex(r => r.id === reviewId);
+                if (index !== -1) {
+                    review.splice(index, 1);
+                }
+                return null;
+            } else {
+                return 'Server error, please retry';
+            }
+        } catch (error) {
+            return 'Error during deletion';
+        }
+    }
 
     async function init() {
         const {data} = await useFetch<Review[]>('/api/review');

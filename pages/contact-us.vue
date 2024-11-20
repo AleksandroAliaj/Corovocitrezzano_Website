@@ -75,8 +75,8 @@ useHead({
                 <section>
                     <p>Se non hai trovato risposta alla tua domanda, contattaci!</p>
                     <div class="title-with-lines"><h2>Contatti</h2></div>
-                    <p>Email: coro.voci.trezzano@example.com</p>
-                    <p>Telefono: +39 0123 456789</p>
+                    <p>Email: corovocitrezzano@gmail.com</p>
+                    <p>Telefono: +39 338 503 5136</p>
                 </section>
             </section>
         </main>

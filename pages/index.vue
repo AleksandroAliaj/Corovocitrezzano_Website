@@ -14,6 +14,7 @@ const reviewStore = useReviewStore();
 let numberOfShownReviews = ref(3);
 let feedbackMessage = ref('')
 
+
 function checkWindowSize() {
     if (window.innerWidth < 800)
         numberOfShownReviews.value = 1;
@@ -38,6 +39,38 @@ const person = computed(() => peopleStore.getPerson(service.value?.person));
 let review = computed(() => (reviewStore.review.filter((r) => r.service === 1)));
 const shownReviews = computed(() => review.value.slice(reviewsIndex.value, reviewsIndex.value + numberOfShownReviews.value))
 
+
+let showDeletePasswordInput = ref(false);
+let deleteAdminPassword = ref("");
+let showDeleteSelection = ref(false);
+let selectedReviewToDelete = ref(null);
+
+
+
+function checkDeleteAdminPassword() {
+    if (deleteAdminPassword.value === "eliminaevento") {
+        showDeleteSelection.value = true;
+        showDeletePasswordInput.value = false;
+        feedbackMessage.value = ""; // Clear any error messages
+    } else {
+        feedbackMessage.value = "Non sei l'amministratore";
+    }
+}
+
+async function deleteSelectedReview() {
+    if (selectedReviewToDelete.value) {
+        try {
+            await reviewStore.deleteReview(selectedReviewToDelete.value);
+            feedbackMessage.value = "Evento eliminato con successo";
+            showDeleteSelection.value = false;
+            selectedReviewToDelete.value = null;
+        } catch (error) {
+            feedbackMessage.value = "Errore durante l'eliminazione dell'evento";
+        }
+    } else {
+        feedbackMessage.value = "Seleziona un evento da eliminare";
+    }
+}
 
 const inputReview = reactive({
     name: '',
@@ -82,7 +115,39 @@ let adminPassword = ref("");
 let showForm = ref(false); // Visibilità del form di recensione
 
 function togglePasswordInput() {
-    showPasswordInput.value = true;
+    // Toggle the current state
+    showPasswordInput.value = !showPasswordInput.value;
+    
+    // If we're hiding the password input, reset all related states
+    if (!showPasswordInput.value) {
+        adminPassword.value = "";
+        showForm.value = false;
+        feedbackMessage.value = "";
+    }
+    
+    // Hide delete-related elements when toggling add
+    showDeletePasswordInput.value = false;
+    deleteAdminPassword.value = "";
+    showDeleteSelection.value = false;
+    selectedReviewToDelete.value = null;
+}
+
+function toggleDeletePasswordInput() {
+    // Toggle the current state
+    showDeletePasswordInput.value = !showDeletePasswordInput.value;
+    
+    // If we're hiding the delete password input, reset all related states
+    if (!showDeletePasswordInput.value) {
+        deleteAdminPassword.value = "";
+        showDeleteSelection.value = false;
+        selectedReviewToDelete.value = null;
+        feedbackMessage.value = "";
+    }
+    
+    // Hide add-related elements when toggling delete
+    showPasswordInput.value = false;
+    adminPassword.value = "";
+    showForm.value = false;
 }
 
 function checkAdminPassword() {
@@ -168,8 +233,8 @@ function goToServices() {
             <section>
                 <div class="two-columns">
                     <div>
-                        <p>Benvenuto nel sito del Coro delle Chiese di Santa Gianna e Sant'Ambrogio di Trezzano sul Naviglio. <br>
-                        Il nostro coro è una comunità aperta a tutti coloro che desiderano esprimere la propria fede attraverso il canto. <br>
+                        <p>Benvenuto nel sito del Coro di Trezzano, spesso ci puoi sentire nelle Chiese di Santa Gianna e Sant'Ambrogio di Trezzano sul Naviglio, ma ci troverai anche in altri eventi. <br>
+                        Il nostro coro è una comunità aperta a tutti coloro che desiderano esprimersi attraverso il canto. <br>
                         Partecipare al coro è un'opportunità per crescere spiritualmente, vivere momenti di condivisione e contribuire alle celebrazioni liturgiche con la musica. <br>
                         Siamo sempre alla ricerca di nuove voci! Se vuoi unirti a noi, troverai tutte le informazioni necessarie nel sito.
                         <br>
@@ -213,15 +278,54 @@ function goToServices() {
         <img alt="Right arrow" class="arrow" src="@/assets/icons/right-arrow.png"/>
     </NuxtLink>
 </div>
-<button class="centered-button" @click="togglePasswordInput">+</button>
+<div class="button-container">
+        <button 
+            class="action-button" 
+            @click="togglePasswordInput"
+            :class="{ 'active': showPasswordInput || showForm }"
+        >+</button>
+        <button 
+            class="action-button" 
+            @click="toggleDeletePasswordInput"
+            :class="{ 'active': showDeletePasswordInput || showDeleteSelection }"
+        >-</button>
+    </div>
 
-<div v-if="showPasswordInput" class="password-container">
-    <input type="password" v-model="adminPassword" placeholder="Inserisci password" />
-    <div style="margin-right: 20px;"></div>
-    <div style="margin-bottom: 20px;"></div>
-    <button @click="checkAdminPassword">Invia</button>
-    <p v-if="feedbackMessage">{{ feedbackMessage }}</p>
-</div>
+    <!-- Existing password input -->
+    <div v-if="showPasswordInput" class="password-container">
+        <input type="password" v-model="adminPassword" placeholder="Password per aggiungere" />
+        <button @click="checkAdminPassword">Invia</button>
+    </div>
+
+    <!-- New delete password input -->
+    <div v-if="showDeletePasswordInput" class="password-container">
+        <input type="password" v-model="deleteAdminPassword" placeholder="Password per eliminare" />
+        <button @click="checkDeleteAdminPassword">Invia</button>
+    </div>
+
+    <!-- Delete selection interface -->
+    <div v-if="showDeleteSelection" class="delete-selection-container">
+        <h3>Seleziona l'evento da eliminare:</h3>
+        <div class="review-selection-list">
+            <div 
+                v-for="review in review" 
+                :key="review.id"
+                class="review-selection-item"
+                :class="{ 'selected': selectedReviewToDelete === review.id }"
+                @click="selectedReviewToDelete = review.id"
+            >
+                <p>{{ new Date(review.date).toLocaleDateString('it-IT') }} - {{ review.name }} {{ review.surname }}</p>
+                <p class="review-comment">{{ review.comment }}</p>
+            </div>
+        </div>
+        <button 
+            @click="deleteSelectedReview"
+            class="delete-button"
+            :disabled="!selectedReviewToDelete"
+        >
+            Elimina evento selezionato
+        </button>
+    </div>
 
 <h3 v-if="showForm">Aggiungi un nuovo evento</h3>
 <form v-if="showForm" id="form">
@@ -235,7 +339,7 @@ function goToServices() {
             <input v-model="inputReview.surname" type="text" id="surname" name="surname" />
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group full-width">
         <label for="date">Data</label>
         <input v-model="inputReview.date" type="date" id="date" name="date" />
     </div>
@@ -289,6 +393,11 @@ function goToServices() {
 </template>
 
 <style scoped>
+
+.feedback-message {
+    margin-top: 10px; /* Aggiungi un margine superiore per distanziare la scritta */
+    color: red; /* Puoi cambiare il colore se necessario */
+}
 
 .centered-button {
     display: block;
@@ -392,5 +501,85 @@ body {
     .image-container img {
         width: 90%;
     }
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px auto;
+}
+
+.action-button {
+    font-size: 2rem;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 5px;
+    background-color: #4c8189;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+    background-color: #3a646a;
+}
+
+.delete-selection-container {
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.review-selection-list {
+    margin: 15px 0;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.review-selection-item {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.review-selection-item:hover {
+    background-color: #f5f5f5;
+}
+
+.review-selection-item.selected {
+    background-color: #e6f3f5;
+    border-color: #4c8189;
+}
+
+.review-comment {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.delete-button:hover:not(:disabled) {
+    background-color: #c82333;
 }
 </style>

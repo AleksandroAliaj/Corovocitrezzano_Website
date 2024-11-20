@@ -246,7 +246,7 @@ function convert(message) {
                 <img class="ourIcon" src="@/assets/icons/phone-call.png" alt=""/>
                 <div style="display: initial;">
                     <p style="letter-spacing: .1rem;">PER INFORMAZIONI</p>
-                    <p>+39 </p>
+                    <p>+39 338 503 5136</p>
                 </div>
             </div>
 
