@@ -161,7 +161,7 @@ function checkAdminPassword() {
 }
 
 const SEOData = computed(() => new Object({
-    title: service.value ? service.value.name + " - Coro Voci Trezzano" : "Service not found - Coro Voci trezzano",
+    title: service.value ? service.value.name + " - Coro Voci Trezzano" : " Coro Voci trezzano",
     meta: [
         {
             name: "description",
