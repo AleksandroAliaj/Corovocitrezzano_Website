@@ -278,18 +278,7 @@ function goToServices() {
         <img alt="Right arrow" class="arrow" src="@/assets/icons/right-arrow.png"/>
     </NuxtLink>
 </div>
-<div class="button-container">
-        <button 
-            class="action-button" 
-            @click="togglePasswordInput"
-            :class="{ 'active': showPasswordInput || showForm }"
-        >+</button>
-        <button 
-            class="action-button" 
-            @click="toggleDeletePasswordInput"
-            :class="{ 'active': showDeletePasswordInput || showDeleteSelection }"
-        >-</button>
-    </div>
+
 
     <!-- Existing password input -->
     <div v-if="showPasswordInput" class="password-container">
@@ -348,7 +337,7 @@ function goToServices() {
         <textarea v-model="inputReview.comment" id="comment" name="comment"></textarea>
     </div>
     <br />
-    <input type="submit" value="Add review" @click="addReview($event)" class="submit" />
+    <input type="submit" value="Aggiungi evento" @click="addReview($event)" class="submit" />
 </form>
 
             <div class="confirmation-message">
