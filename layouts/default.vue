@@ -157,9 +157,7 @@ function convert(message) {
 
 <template>
     <head>
-        <link rel="icon" type="image/x-icon" href="/public/logo.png" />
-        <meta name="google-site-verification" content="njoMrceFdnJOWLQl4PKP-WYKdn7f__adcuwA0fIieac" />
-        
+        <meta name="google-site-verification" content="b6omG0lu_N5BAUiBPH1Mm4JMfihLzLE2ls9PEY9HsYw" />
     </head>
     <header>
         <div @click="$router.push('/')" style="cursor: pointer;"
