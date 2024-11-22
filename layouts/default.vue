@@ -158,6 +158,7 @@ function convert(message) {
 <template>
     <head>
         <link rel="icon" type="image/x-icon" href="/public/logo.png" />
+        <meta name="google-site-verification" content="njoMrceFdnJOWLQl4PKP-WYKdn7f__adcuwA0fIieac" />
         
     </head>
     <header>
