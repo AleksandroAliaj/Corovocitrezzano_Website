@@ -23,7 +23,7 @@ useHead({
 });
 
 const paragraphs = ['VOCI CHE CANTANO,', 'IN ARMONIA'];
-const mainImagePath = "/img/services/MAIN.png";
+const mainImagePath = "/img/services/MAIN.webp";
 </script>
 
 <template>

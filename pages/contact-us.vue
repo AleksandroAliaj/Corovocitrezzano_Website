@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 
 const paragraphs = ['CONTATTACI', 'UNISCITI A NOI'];
-const mainImagePath = "/img/contact-us-MAIN.png";
+const mainImagePath = "/img/contact-us-MAIN.webp";
 
 useHead({
     title: "Contatta Coro Voci Trezzano - Informazioni e Iscrizioni",

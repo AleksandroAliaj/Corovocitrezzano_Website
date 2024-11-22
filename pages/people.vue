@@ -4,7 +4,7 @@ import ListComponent from "~/components/ListComponent.vue";
 
 const people = ref(usePeopleStore().people), shown = ref(9), numberOfPeople = computed(() => people.value.length);
 const paragraphs = ['LE NOSTRE VOCI,', 'UNITE PER TE!']
-const mainImagePath = "/img/people/MAIN.png"
+const mainImagePath = "/img/people/MAIN.webp"
 
 function showMore() {
     if (shown.value + 6 > numberOfPeople.value)

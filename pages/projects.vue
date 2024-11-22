@@ -19,7 +19,7 @@ useHead({
 });
 
 const paragraphs = ['DOCUMENTI CORO,', 'ACCESSO RISERVATO'];
-const mainImagePath = "/img/projects/MAIN.png";
+const mainImagePath = "/img/projects/MAIN.webp";
 
 function authenticate() {
   if (password.value === 'documenticoro') {

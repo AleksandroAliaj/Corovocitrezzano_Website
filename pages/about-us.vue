@@ -31,7 +31,7 @@ useHead({
 })
 
 const paragraphs = ['IL CANTO', 'DONA AMORE']
-const mainImagePath = "/img/about-us-MAIN.png"
+const mainImagePath = "/img/about-us-MAIN.webp"
 </script>
 
 <template>
