@@ -34,7 +34,7 @@ const mainImagePath = "/img/services/MAIN.webp";
     <div class="title-with-lines" id="main-title"><h1>Video</h1></div>
     <section id="video-section">
       <div class="two-columns">
-        <img src="/img/services/home_2.webp" alt="Immagine video Coro Voci Trezzano" />
+        <img src="/img/homepage/1.webp" alt="Immagine video Coro Voci Trezzano" />
         <div>
           <p>Scopri la magia del Coro Voci di Trezzano attraverso i nostri video. Catturiamo i momenti più belli dei nostri concerti e delle prove, mostrando l’armonia delle nostre voci e la passione che ci unisce. Ogni video è un frammento della nostra storia, da vivere e condividere.</p>
         </div>
