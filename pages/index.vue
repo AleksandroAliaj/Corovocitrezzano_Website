@@ -163,6 +163,10 @@ useHead({
   title: "Coro Voci Trezzano - Canto Corale a Trezzano sul Naviglio",
   meta: [
     {
+            name: "google-site-verification",
+            content: "njoMrceFdnJOWLQl4PKP-WYKdn7f__adcuwA0fIieac"
+    },
+    {
       name: "description",
       content: "Il Coro delle Voci di Trezzano, attivo nelle Chiese di Santa Gianna e Sant'Ambrogio. Unisciti a noi per celebrazioni liturgiche, concerti e attività comunitarie. Appassionati di musica corale benvenuti!"
     },
