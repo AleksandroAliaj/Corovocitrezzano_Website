@@ -2,7 +2,7 @@
 import {ref} from 'vue';
 
 const inspirationalQuotes = [
-    "La musica è l’arte invisibile che ci permette di comunicare senza barriere, di parlare attraverso note che risuonano nei cuori di chi ascolta.",
+    
     "Cantare è molto più che emettere suoni; è dare voce alla nostra anima, trasmettere ciò che le parole da sole non possono esprimere.",
     "Il coro è come un grande abbraccio fatto di voci, dove ognuno porta la propria unicità per creare un’armonia indimenticabile.",
     "Quando cantiamo insieme, la nostra voce diventa più grande, più forte e più bella, un messaggio di unione che vola nell’aria.",
